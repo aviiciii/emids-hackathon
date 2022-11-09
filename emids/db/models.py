@@ -20,14 +20,14 @@ class Bloodgroup(models.Model):
 class Patient(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=100)
-    mobile = models.CharField(max_length=13)
+    mobile = models.CharField(max_length=13, blank=True, null=True)
     sex= models.ForeignKey(Sex, on_delete=models.CASCADE)
     age= models.CharField(max_length=5)
     blood_group = models.ForeignKey(Bloodgroup, on_delete=models.CASCADE)
-    emergency_contact= models.CharField(max_length=13)
+    emergency_contact= models.CharField(max_length=13, blank=True, null=True)
     drinking=models.BooleanField(default=False)
     smoking=models.BooleanField(default=False)
-    past_history = models.CharField(max_length=100)
+    past_history = models.CharField(max_length=100, blank=True, null=True)
 
     def __str__(self):
         return self.name
@@ -36,7 +36,7 @@ class Patient(models.Model):
 class Doctor(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=100)
-    speciality= models.CharField(max_length=100)
+    speciality= models.CharField(max_length=100, blank=True, null=True)
     mobile= models.CharField(max_length=13)
 
     def __str__(self):
@@ -47,8 +47,8 @@ class Appointment(models.Model):
     id = models.AutoField(primary_key=True)
     patient = models.ForeignKey(Patient, on_delete=models.CASCADE)
     doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE)
-    date = models.DateField()
-    examination = models.ForeignKey("Examination", on_delete=models.CASCADE)
+    date = models.DateField(blank=True, null=True)
+    examination = models.ForeignKey("Examination", on_delete=models.CASCADE, blank=True, null=True)
 
     def __str__(self):
         return self.patient.name + ' ' + self.doctor.name
@@ -64,8 +64,8 @@ class Medicine(models.Model):
 
 class Scan(models.Model):
     id=models.AutoField(primary_key=True)
-    date=models.DateField()
-    type=models.CharField(max_length=100)
+    date=models.DateField(blank=True, null=True)
+    type=models.CharField(max_length=100, blank=True, null=True)
     
     def __str__(self):
         return self.id
@@ -73,9 +73,9 @@ class Scan(models.Model):
 
 class Examination(models.Model):
     id=models.AutoField(primary_key=True)
-    chief_complaint=models.CharField(max_length=100)
-    present_illness=models.CharField(max_length=100)
-    diagnosis=models.CharField(max_length=100)
+    chief_complaint=models.CharField(max_length=100, blank=True, null=True)
+    present_illness=models.CharField(max_length=100, blank=True, null=True)
+    diagnosis=models.CharField(max_length=100, blank=True, null=True)
     scan=models.ManyToManyField(Scan)
     medicine=models.ManyToManyField(Medicine)
 
