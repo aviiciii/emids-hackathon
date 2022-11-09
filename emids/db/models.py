@@ -40,7 +40,7 @@ class Doctor(models.Model):
     mobile= models.CharField(max_length=13)
 
     def __str__(self):
-        return 'Dr.' + self.name
+        return 'Dr.' + str(self.id)
 
 
 class Appointment(models.Model):
