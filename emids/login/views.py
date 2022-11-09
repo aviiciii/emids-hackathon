@@ -38,3 +38,5 @@ def doctor_login(request):
         else:
             messages.error(request,'Invalid id and/or password')
             return redirect('login')
+
+    return render(request, 'login/login_doctor.html')

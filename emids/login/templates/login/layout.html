@@ -6,71 +6,40 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Electronic Health Record</title>
-</head>
-<body>
-    <!DOCTYPE html>
-<html>
-<head>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>navbar</title>
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 	<link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+
+    <title>Electronic Health Record</title>
+    {% block head %}
     
+    {% endblock head %}
+
+
 </head>
-<body>
-    
-{% comment %} navbar {% endcomment %}
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">Navbar</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </li>
-    </ul>
-    <form class="form-inline my-2 my-lg-0 col-md-4">
-    	<div style="position: relative;">
-      		<input class="custom_search form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      		<span class="search_span"></span>
-  		</div>
-      <button class="ml-lg-3 btn btn-success my-2 my-sm-0 search_button tx--white" type="button" ripple="ripple">Search</button>
-    </form>
-  </div>
-</nav>
 
 
 
-</body>
+
+
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   
-  <script src="script.js">
-  </script>
+<script src="script.js">
+</script>
   
-  </html>
-<html>
+
 
 <body>
+    {% comment %} navbar {% endcomment %}
+    
+    {% include 'login/navbar.html' %}
+
+
+
+
+
     {% block main %}
 
     {% endblock main %}
