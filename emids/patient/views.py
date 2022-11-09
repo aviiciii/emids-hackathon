@@ -4,8 +4,8 @@ from django.shortcuts import render
 def dashboard(request):
     return render(request, 'patient/dashboard.html')
 
-def search(request):
-    return render(request, 'patient/search.html')
+def appointments(request, appointment_id):
+    return render(request, 'patient/appointment.html')
 
-def patient_profile(request):
-    return render(request, 'patient/patient_profile.html')
+def patient_report(request):
+    return render(request, 'patient/patient_report.html')
