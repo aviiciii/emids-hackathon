@@ -1,5 +1,8 @@
+from django.contrib.auth.models import AbstractUser
 from django.db import models
 
+class User(AbstractUser):
+    pass
 
 class Sex(models.Model):
     id = models.AutoField(primary_key=True)
@@ -18,8 +21,7 @@ class Bloodgroup(models.Model):
 
 # Create your models here.
 class Patient(models.Model):
-    id = models.AutoField(primary_key=True)
-    name = models.CharField(max_length=100)
+    id = models.ForeignKey(User, on_delete=models.CASCADE, primary_key=True, related_name='patient_user')
     mobile = models.CharField(max_length=13, blank=True, null=True)
     sex= models.ForeignKey(Sex, on_delete=models.CASCADE)
     age= models.CharField(max_length=5)
@@ -34,8 +36,7 @@ class Patient(models.Model):
 
 
 class Doctor(models.Model):
-    id = models.AutoField(primary_key=True)
-    name = models.CharField(max_length=100)
+    id = models.ForeignKey(User, on_delete=models.CASCADE, primary_key=True, related_name='doctor_user')
     speciality= models.CharField(max_length=100, blank=True, null=True)
     mobile= models.CharField(max_length=13)
 
