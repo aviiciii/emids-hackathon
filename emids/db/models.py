@@ -32,7 +32,7 @@ class Patient(models.Model):
     past_history = models.CharField(max_length=100, blank=True, null=True)
 
     def __str__(self):
-        return self.name
+        return str(self.id)
 
 
 class Doctor(models.Model):
