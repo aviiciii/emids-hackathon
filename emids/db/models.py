@@ -76,9 +76,9 @@ class Examination(models.Model):
     chief_complaint=models.CharField(max_length=100, blank=True, null=True)
     present_illness=models.CharField(max_length=100, blank=True, null=True)
     diagnosis=models.CharField(max_length=100, blank=True, null=True)
-    scan=models.ManyToManyField(Scan)
-    medicine=models.ManyToManyField(Medicine)
+    scan=models.ManyToManyField(Scan, blank=True)   
+    medicine=models.ManyToManyField(Medicine, blank=True)
 
     def __str__(self):
-        return self.id
+        return f'{self.id}'
 
