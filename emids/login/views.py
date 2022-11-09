@@ -27,4 +27,14 @@ def patient_login(request):
 
 # doctor login 
 def doctor_login(request):
-    return render(request, 'login/doctor_login.html')
+    if request.method=="POST":
+        mobile = request.POST['id']
+        password = request.POST['password']
+        user = authenticate(request, username=id, password=password)
+        #check if aunthentication successful
+        if user is not None:
+            login(request, user)
+            return redirect('index')
+        else:
+            messages.error(request,'Invalid id and/or password')
+            return redirect('login')
