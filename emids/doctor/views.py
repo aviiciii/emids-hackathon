@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from db import models
 # Create your views here.
 
@@ -17,8 +17,6 @@ def dash(request):
         'doctor':doctor,
         'appointments':appointments,
     }
-
-
     return render(request, 'login/index.html', context)
 
 
