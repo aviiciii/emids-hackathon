@@ -19,7 +19,6 @@ class Bloodgroup(models.Model):
         return self.name
 
 
-# Create your models here.
 class Patient(models.Model):
     id = models.ForeignKey(User, on_delete=models.CASCADE, primary_key=True, related_name='patient_user')
     mobile = models.CharField(max_length=13, blank=True, null=True)
@@ -67,6 +66,7 @@ class Scan(models.Model):
     id=models.AutoField(primary_key=True)
     date=models.DateField(blank=True, null=True)
     type=models.CharField(max_length=100, blank=True, null=True)
+    profile_pic = models.ImageField(null = True, blank = True , upload_to = 'img/scan/')
     
     def __str__(self):
         return self.id
