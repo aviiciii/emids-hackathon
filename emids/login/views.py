@@ -23,7 +23,7 @@ def patient_login(request):
 
 
 
-    return render(request, 'login/patient_login.html')  
+    return render(request, 'login/login_patient.html')  
 
 # doctor login 
 def doctor_login(request):

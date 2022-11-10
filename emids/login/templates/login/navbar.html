@@ -8,16 +8,11 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav ms-auto">
-        <a class="nav-link active" aria-current="page" href="#">Home</a>
-        <a class="nav-link" href="#">Features</a>
-        <a class="nav-link" href="#">About</a>
-        <a class="nav-link me-5" href="#">Template</a>
+      <div class="navbar-nav ms-auto" >
+        <a class="nav-link login" href="{% url 'index' %}">Home</a>
       </div>
-      <droplist>
-          
-      </droplist>
-      <a href="#" class="btn btn-outline-secondary shadow-sm d-sm d-block">Logins</a>
+      <a href="{% url 'patient_login' %}" class="login btn btn-outline-secondary shadow-sm d-sm d-block btn btn-outline-primary">Patient Login</a>
+      <a href="{% url 'doctor_login' %}" class="login btn btn-outline-secondary shadow-sm d-sm d-block btn btn-outline-success">Doctor Login</a>
     </div>
   </div>
 </nav>
