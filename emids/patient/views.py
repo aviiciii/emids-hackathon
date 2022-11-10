@@ -37,3 +37,29 @@ def appointments(request, appointment_id):
 
 def patient_report(request):
     return render(request, 'patient/patient_report.html')
+
+
+
+def patient_profile(request):
+    # get the user
+    username = request.user.get_username()
+    # get the patient
+    patient = models.Patient.objects.get(id=username)
+
+    # get the appointments
+    appointments = models.Appointment.objects.filter(patient=patient).all()
+
+    # get the examinations
+    examinations = models.Examination.objects.filter(appointment__in=appointments).all()
+
+    # get the medicines
+    medicines = models.Medicine.objects.all()
+
+    context={
+        'patient':patient,
+        'appointments':appointments,
+        'examinations':examinations,
+        'medicines':medicines,
+    }
+
+    return render(request, 'patient/patient_profile.html', context)
