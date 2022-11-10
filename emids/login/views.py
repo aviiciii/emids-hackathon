@@ -15,7 +15,7 @@ def patient_login(request):
         # Check if authentication successful
         if user is not None:
             login(request, user)
-            return redirect('index')
+            return redirect('patient_dashboard')
         else:
             messages.error(request, 'Invalid username and/or password.')
             return redirect('login')
