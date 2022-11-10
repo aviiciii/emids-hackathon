@@ -66,7 +66,7 @@ class Scan(models.Model):
     id=models.AutoField(primary_key=True)
     date=models.DateField(blank=True, null=True)
     type=models.CharField(max_length=100, blank=True, null=True)
-    profile_pic = models.ImageField(null = True, blank = True , upload_to = 'img/scan/')
+    img = models.ImageField(null = True, blank = True , upload_to = 'img/scan/')
     
     def __str__(self):
         return self.id
